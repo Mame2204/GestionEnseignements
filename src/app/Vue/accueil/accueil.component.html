@@ -1,0 +1,44 @@
+<!-- <div> TEST</div> -->
+
+<table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped" >
+  <thead>
+    <tr>
+        <th>NOM</th>
+        <th>PRENOM</th>
+        <th>STATUT</th>
+        <th>HEURE MINIMUM</th>
+        <th>NOMBRE D'HEURE DECHARGEABLE</th>
+        <th>EMAIL</th>
+    </tr>
+    <!-- <tr>
+        <th colspan="5"><input st-search="" class="form-control" placeholder="Buscar producto ..." type="text"/></th>
+        </tr> -->
+
+    <!-- <tr>
+        <th colspan="5"><input st-search="" class="form-control" placeholder="Buscar producto ..." type="text"/></th>
+        </tr> -->
+  </thead>
+  <tbody>
+     <!-- <tr ng-repeat="row in displayedCollection"> -->
+      <!-- <tr ng-forEach="user in allUser"> -->
+        <!--<td [(ngModel)]="value"></td> -->
+        <tr *ngFor="let user of currentUser">
+        <td>{{user._id}}</td>
+        <td>{{user.Nom}}</td>
+        <td>{{user.Prenom}}</td>
+        <td>{{user.Statut}}</td>
+        <td>{{user.HeureMin}}</td>
+        <td>{{user.NbHeureDechargeable}}</td>
+        <!-- <td>{{user.}}</td> -->
+        <td>{{user.email}}</td>
+        <td>
+            <!-- <button type="button" (click)="" class="btn btn-sm btn-danger">
+               <i class="glyphicon glyphicon-remove-circle">Update</i>
+            </button>-->
+            <!-- <button type="button" (click)="removeUser(user._id)" class="btn btn-sm btn-danger">
+              <i class="glyphicon glyphicon-remove-circle">Delete</i>
+           </button>  -->
+        </td>
+    </tr>
+  </tbody>
+</table>

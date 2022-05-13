@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- width=device-width aide à définir la largeur de la page, pour qu'elle soit égale à celle de l'écran de votre appareil -->
+    <title>Exemple de page avec Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- TEST{{currentUser|json}} -->
+    <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+
+        <!-- <thead>
+          <tr>
+            <th>NOM</th>
+            <th>PRENOM</th>
+            <th>STATUT</th>
+            <th>HEURE MINIMUM</th>
+            <th>NOMBRE D'HEURE DECHARGEABLE</th>
+            <th>EMAIL</th>
+            <th>ACTIONS</th>
+        </tr>
+          <tr>
+              <th colspan="5"><input st-search="" class="form-control" placeholder="Buscar producto ..." type="text"/></th>
+              </tr> 
+        </thead> -->
+        <tbody *ngFor="let us of currentUser"> 
+          <tr >
+            <tr>
+              <td>Nom</td>
+                <td>{{us.Nom}}</td>
+            </tr>
+            <tr>
+                <td>Prenom</td>
+                <td>{{us.Prenom}}</td>
+            </tr>
+            <tr>
+                <td>Statut</td>
+                <td>{{us.Statut}}</td>
+            </tr>
+            <tr>
+                <td>Heure minimum</td>
+                <td>{{us.HeureMin}}</td>
+            </tr>
+            <tr>
+                <td>Nombre d'heures dechargeables</td>
+                <td>{{us.NbHeureDechargeable}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{us.email}}</td>
+            </tr>
+            <tr>
+                <td>Mot de passe</td>
+                <td>{{us.Mdp}}</td>
+            </tr>
+                <button type="button"  class="btn btn-sm btn-danger" (click)="trouveUser(us._id)" routerLink="/modifCompte" [queryParams]="{par1:us._id}">
+                  <i class="glyphicon glyphicon-remove-circle">Modication des informations</i>
+               </button>
+        </tbody>
+      </table>
+
+    <!-- à la fin de votre page html -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
