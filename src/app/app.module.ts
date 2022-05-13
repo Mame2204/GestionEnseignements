@@ -6,44 +6,49 @@ import { AppComponent } from './app.component';
 //import { WebReqInterceptor } from './web-req.interceptor';
 import { InscriptionComponent } from './Vue/inscription/inscription.component';
 import { ConnexionComponent } from './Vue/connexion/connexion.component';
-import { AjoutEnseignantComponent } from './Vue/ajout-enseignant/ajout-enseignant.component';
-import { ModifEnseignantComponent } from './Vue/modif-enseignant/modif-enseignant.component';
-import { SupprEnseignantComponent } from './Vue/suppr-enseignant/suppr-enseignant.component';
-import { ModifMdpComponent } from './Vue/modif-mdp/modif-mdp.component';
-import { InsNonVacatEnsComponent } from './Vue/ins-non-vacat-ens/ins-non-vacat-ens.component';
-import { DesinsNonVacatEnsComponent } from './Vue/desins-non-vacat-ens/desins-non-vacat-ens.component';
-import { InsEnsParAdminComponent } from './Vue/ins-ens-par-admin/ins-ens-par-admin.component';
-import { DesinsEnsParAdminComponent } from './Vue/desins-ens-par-admin/desins-ens-par-admin.component';
-import { EditRecapServPourvuComponent } from './Vue/edit-recap-serv-pourvu/edit-recap-serv-pourvu.component';
-import { EditRecapServNonPourvuComponent } from './Vue/edit-recap-serv-non-pourvu/edit-recap-serv-non-pourvu.component';
-import { SaisieUCComponent } from './Vue/saisie-uc/saisie-uc.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './auth.service';
+import { AccueilComponent } from './Vue/accueil/accueil.component';
+import { GestionComptesComponent } from './Vue/gestion-comptes/gestion-comptes.component';
+import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './Vue/menu/menu.component';
+import { GestionEnseignementsComponent } from './Vue/gestion-enseignements/gestion-enseignements.component';
+import { GestionRecapitulatifsComponent } from './Vue/gestion-recapitulatifs/gestion-recapitulatifs.component';
+import { GestionReglesCalculComponent } from './Vue/gestion-regles-calcul/gestion-regles-calcul.component';
+import { RecapitulatifComponent } from './Vue/recapitulatif/recapitulatif.component';
+import { EnseignementsComponent } from './Vue/enseignements/enseignements.component';
+import { MonCompteComponent } from './Vue/mon-compte/mon-compte.component';
+import { ModifCompteComponent } from './Vue/modif-compte/modif-compte.component';
+import { DeconnexionComponent } from './Vue/deconnexion/deconnexion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InscriptionComponent,
     ConnexionComponent,
-    AjoutEnseignantComponent,
-    ModifEnseignantComponent,
-    SupprEnseignantComponent,
-    ModifMdpComponent,
-    InsNonVacatEnsComponent,
-    DesinsNonVacatEnsComponent,
-    InsEnsParAdminComponent,
-    DesinsEnsParAdminComponent,
-    EditRecapServPourvuComponent,
-    EditRecapServNonPourvuComponent,
-    SaisieUCComponent
+    AccueilComponent,
+    GestionComptesComponent,
+    MenuComponent,
+    GestionEnseignementsComponent,
+    GestionRecapitulatifsComponent,
+    GestionReglesCalculComponent,
+    RecapitulatifComponent,
+    EnseignementsComponent,
+    MonCompteComponent,
+    ModifCompteComponent,
+    DeconnexionComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
     //{ provide: HTTP_INTERCEPTORS, useClass: WebReqInterceptor, multi: true }
+    AuthService
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
