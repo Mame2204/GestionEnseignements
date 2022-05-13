@@ -1,8 +1,8 @@
 <div class="centered-content">
     <div class="white-box">
-  
+
       <h1 class="title has-text-primary">Login</h1>
-      
+
       <div class="field">
         <p class="control has-icons-left has-icons-right">
           <input #emailInput class="input has-background-light" type="email" placeholder="Email">
@@ -21,17 +21,16 @@
       </div>
       <div class="field" style="display: flex; justify-content: flex;">
         <p class="control">
-          <button class="button is-success has-text-white" (click)="onLoginButtonClicked(emailInput.value, pwInput.value)" routerLink="/accueil" [queryParams]="{par1:emailInput, par2:pwInput}" > 
+          <button class="button is-success has-text-white" (click)="onLoginButtonClicked(emailInput.value, pwInput.value)" routerLink="/accueil" [queryParams]="{par1:emailInput, par2:pwInput}" >
             <!--  -->
             Login
           </button>
         </p>
       </div>
-  
+
       <br>
-  
+
       <p class="has-text-grey">Not got an account? <a routerLink="../inscription">Sign up</a> now!</p>
-  
+
     </div>
   </div>
-  
