@@ -20,25 +20,24 @@ constructor(private authService: AuthService, private router: Router, private ht
         value => {
           if(Object.keys(value).length==0)
           this.router.navigate(['/connexion']);
-          else 
+          else
             this.allUser=value;
           }
       ,
       error => console.log(error),
-      
+
      );
   }
 
   removeUser(id:string) {
     console.log("Suppresion de "+id)
-    this.http.get('http://localhost:8888/userDelete/'+id, {
-      withCredentials: true}).subscribe(() => console.log("Suppresion OK"));
+    this.http.get('http://localhost:8888/userDelete/'+id).subscribe(() => console.log("Suppresion OK"));
     //console.log("Suppresion de "+id)
     this.reloadComponent();
-    
+
   }
 
- reloadComponent(){  
+ reloadComponent(){
       let currentUrl = this.router.url;
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
@@ -49,22 +48,19 @@ constructor(private authService: AuthService, private router: Router, private ht
     window.location.reload();
   }
 
-
-
   trouveUser(id:string) {
     this.http.get('http://localhost:8888/search/'+id).subscribe(
-      value => { 
+      value => {
       if(Object.keys(value).length==0)
         this.router.navigate(['/connexion']);
       else {
         this.currentUser=value;
-        //this.reloadComponent(); 
         this.refresh();
       }
   },
   error => console.log(error),);
-  
+
   }
-  
+
 
 }

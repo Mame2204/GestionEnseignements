@@ -6,15 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deconnexion.component.css']
 })
 export class DeconnexionComponent implements OnInit {
+  public globlaString:any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.globlaString="";
   }
-
-  logout() :void {     //deconnexion
-    localStorage.setItem('isLoggedIn','false');    
-    localStorage.removeItem('token');    
-    } 
-
 }

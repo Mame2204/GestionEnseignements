@@ -18,20 +18,10 @@ export class ConnexionComponent implements OnInit {
   }
 
   onLoginButtonClicked(email: string, password: string) {
-    
       this.http.get('http://localhost:8888/login?email='+email+'&Mdp='+password).subscribe(
-        
-        value => {//if(Object.keys(value).length==0) {
-          //this.router.navigate(['/connexion']);}
-        //else 
-        //console.log("eee "+JSON.stringify(value));
-           //this.router.navigate(['/accueil']);
-        }
-      ,
+        value => {},
         error => console.log(error),
        );
-
-  
   }
 
 }

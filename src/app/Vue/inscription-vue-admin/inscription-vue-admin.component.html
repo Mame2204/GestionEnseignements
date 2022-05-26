@@ -1,0 +1,78 @@
+<div class="centered-content">
+  <div > <!--class="white-box"-->
+
+    <h1 class="title has-text-primary">Inscription</h1>
+  </div >
+  <div >
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #nomInput class="input has-background-light" type="text" placeholder="Nom">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #prenomInput class="input has-background-light" type="text" placeholder="Prenom">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #statutInput class="input has-background-light" type="text" placeholder="Statut">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #heureMinInput class="input has-background-light" type="text" placeholder="HeureMin">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #nbHeureDechargeableInput class="input has-background-light" type="text" placeholder="NbHeureDechargeable">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #emailInput class="input has-background-light" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input #pwInput class="input has-background-light" type="password" placeholder="Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field" style="display: flex; justify-content: flex;">
+      <p class="control">
+        <button class="button is-success has-text-white" (click)="onSignupButtonClicked(nomInput.value, prenomInput.value, statutInput.value, heureMinInput.value, nbHeureDechargeableInput.value, emailInput.value, pwInput.value)" routerLink="/gestionComptes" [queryParams]="{par1:emailInput, par2:emailInput}">
+          Valider
+        </button>
+      </p>
+    </div>
+    <br>
+
+    <p class="has-text-grey">Already got an account? <a routerLink="../connexion">Login</a> now!</p>
+
+  </div>
+</div>

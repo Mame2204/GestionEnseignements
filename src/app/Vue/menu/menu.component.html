@@ -1,65 +1,111 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- width=device-width aide à définir la largeur de la page, pour qu'elle soit égale à celle de l'écran de votre appareil -->
-   <title>Exemple de page avec Bootstrap</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-</head>
-<body>
-   <h1>Gestion des enseignements</h1> 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Accueil</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/monCompte" [queryParams]="{}">Mon compte <span class="sr-only">(current)</span></a> <!--enseignant-->
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/gestionComptes">Gestion des comptes</a> <!--admin-->
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/enseignements">Enseignements</a> <!--enseignant-->
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/gestionEnseignements">Gestion des enseignements</a> <!--admin-->
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/recapitulatif">Recapitulatif</a> <!--enseignant-->
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/gestionRecapitulatifs">Gestion des recapitulatif</a> <!--admin-->
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/gestionReglesCalcul">Gestion des regles de calcul</a> <!--admin-->
-      </li>
-      <div *ngIf="globlaString.length===0">
-        <li class="nav-item" >
-          <a class="nav-link" routerLink="/connexion">Connexion</a>
-        </li>
+  <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Exemple de page avec Bootstrap</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Gestion des enseignements</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <div *ngIf="allpeople">
+        <a class="navbar-brand" href="#">Inscription</a>
       </div>
-      <div *ngIf="globlaString.length>0">
-        <li class="nav-item" >
-          <a class="nav-link" routerLink="/inscription">Deconnexion</a>
-        </li>
+
+      <div class="position-absolute" style="right: 0px" *ngIf="allpeople">
+        <a class="nav-link" routerLink="/connexion">Connexion</a>
       </div>
-        
-      
-    </ul>
-    <!-- <span class="navbar-text">
-      Navbar text with an inline element
-    </span> -->
-  </div>
-</nav>
-<!-- à la fin de votre page html -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!--ENSEIGNANT-->
+      <div *ngFor="let user of globlaString">
+        <div class="collapse navbar-collapse" id="navbarText" *ngIf="user.Statut != 'ADMIN'">
+          <ul class="navbar-nav mr-auto">
+
+            <div *ngIf="globlaString.length>0">
+              <a class="navbar-brand" routerLink="/accueil">Accueil</a>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/monCompte" [queryParams]="{}">Mon compte <span class="sr-only">(current)</span></a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/enseignementsEnseignant">Enseignements</a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/recapitulatif">Recapitulatif</a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="position-absolute" style="right: 0px"  >
+                <a class="nav-link" (click)="deconnexion()" routerLink="/inscription">Deconnexion</a>
+
+              </li>
+            </div>
+          </ul>
+        </div>
+
+        <!--ADMIN-->
+        <div class="collapse navbar-collapse" id="navbarText1" *ngIf="user.Statut == 'ADMIN'">
+          <ul class="navbar-nav mr-auto">
+
+            <div *ngIf="globlaString.length>0">
+              <a class="navbar-brand" routerLink="/accueil">Accueil</a>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/gestionComptes">Gestion des comptes</a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0 ">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/gestionEnseignements">Gestion des enseignements</a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/gestionRecapitulatifs">Gestion des recapitulatif</a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0 ">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/gestionReglesCalcul">Gestion des regles de calcul</a>
+              </li>
+            </div>
+
+            <div *ngIf="globlaString.length>0">
+              <li class="position-absolute" style="right: 0px"  >
+                <a class="nav-link" (click)="deconnexion()" routerLink="/inscription">Deconnexion</a>
+
+              </li>
+            </div>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- à la fin de votre page html -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
-<!-- <app-gestion-comptes [allUser]="users"></app-gestion-comptes> -->

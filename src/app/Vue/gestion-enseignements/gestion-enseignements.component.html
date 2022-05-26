@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <!-- <div> TEST</div> -->
-    <button type="button" routerLink="/inscription" class="btn btn-sm btn-danger">
-        <i class="glyphicon glyphicon-remove-circle">Nouvel enseignant</i>
-    </button>
-    
+
     <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
 
         <thead>
@@ -27,12 +23,16 @@
               </tr> -->
         </thead>
         <tbody>
-          <tr *ngFor="let user of allUser"> 
+          <tr *ngFor="let user of allUser">
             <td>{{user.Nom}}</td>
             <td>{{user.Prenom}}</td>
             <td>{{user.Statut}}</td>
             <td>
-              <button type="button"  class="btn btn-sm btn-danger"  routerLink="/enseignements" [queryParams]="{par1:user._id}">
+
+              <button type="button"  class="btn btn-sm btn-danger"   routerLink="/enseignementsVueAdmin" [queryParams]="{par1:user._id}">
+                <i class="glyphicon glyphicon-remove-circle">Ajout d'enseignements</i>
+              </button>
+              <button type="button"  class="btn btn-sm btn-danger" (click)="detailsUE(user._id)" routerLink="/enseignementsParEnseignantVueAdmin" [queryParams]="{par1:user._id}">
                 <i class="glyphicon glyphicon-remove-circle">Details des enseignements</i>
              </button>
             </td>

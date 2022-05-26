@@ -8,56 +8,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <!-- TEST{{currentUser|json}} -->
     <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
-
-        <!-- <thead>
+      <tbody *ngFor="let us of currentUser">
+        <tr >
           <tr>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>STATUT</th>
-            <th>HEURE MINIMUM</th>
-            <th>NOMBRE D'HEURE DECHARGEABLE</th>
-            <th>EMAIL</th>
-            <th>ACTIONS</th>
-        </tr>
+            <td>Nom</td>
+            <td>{{us.Nom}}</td>
+          </tr>
           <tr>
-              <th colspan="5"><input st-search="" class="form-control" placeholder="Buscar producto ..." type="text"/></th>
-              </tr> 
-        </thead> -->
-        <tbody *ngFor="let us of currentUser"> 
-          <tr >
-            <tr>
-              <td>Nom</td>
-                <td>{{us.Nom}}</td>
-            </tr>
-            <tr>
-                <td>Prenom</td>
-                <td>{{us.Prenom}}</td>
-            </tr>
-            <tr>
-                <td>Statut</td>
-                <td>{{us.Statut}}</td>
-            </tr>
-            <tr>
-                <td>Heure minimum</td>
-                <td>{{us.HeureMin}}</td>
-            </tr>
-            <tr>
-                <td>Nombre d'heures dechargeables</td>
-                <td>{{us.NbHeureDechargeable}}</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>{{us.email}}</td>
-            </tr>
-            <tr>
-                <td>Mot de passe</td>
-                <td>{{us.Mdp}}</td>
-            </tr>
-                <button type="button"  class="btn btn-sm btn-danger" (click)="trouveUser(us._id)" routerLink="/modifCompte" [queryParams]="{par1:us._id}">
-                  <i class="glyphicon glyphicon-remove-circle">Modication des informations</i>
-               </button>
+            <td>Prenom</td>
+            <td>{{us.Prenom}}</td>
+          </tr>
+          <tr>
+            <td>Statut</td>
+            <td>{{us.Statut}}</td>
+          </tr>
+          <tr>
+            <td>Heure minimum</td>
+            <td>{{us.HeureMin}}</td>
+          </tr>
+          <tr>
+            <td>Nombre d'heures dechargeables</td>
+            <td>{{us.NbHeureDechargeable}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{us.email}}</td>
+          </tr>
+          <tr>
+            <td>Mot de passe</td>
+            <td>{{us.Mdp}}</td>
+          </tr>
+          <button type="button"  class="btn btn-sm btn-primary" (click)="trouveUser(us._id)" routerLink="/modifCompteEnseignant" [queryParams]="{par1:us._id}">
+            <i class="glyphicon glyphicon-remove-circle">Modication des informations</i>
+          </button>
         </tbody>
       </table>
 

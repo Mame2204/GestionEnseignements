@@ -9,10 +9,10 @@
   </head>
   <body>
     <!-- <div> TEST</div> -->
-    <button type="button" routerLink="/inscription" class="btn btn-sm btn-danger">
+    <button type="button" routerLink="/inscriptionVueAdmin" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-remove-circle">Nouvel enseignant</i>
     </button>
-    
+
     <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
 
         <thead>
@@ -45,7 +45,7 @@
              </button>
                 <button type="button" class="btn btn-sm btn-danger" (click)="removeUser(user._id)">
                   <i class="glyphicon glyphicon-remove-circle">Delete</i>
-               </button> 
+               </button>
             </td>
         </tr>
         </tbody>

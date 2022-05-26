@@ -1,0 +1,85 @@
+<div class="centered-content">
+  <div > <!--class="white-box"-->
+
+    <h1 class="title has-text-primary">Modification de compte</h1>
+  </div >
+  <div *ngFor="let u of user">
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #idInput class="input has-background-light" type="hidden" value={{u._id}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #nomInput class="input has-background-light" type="text" value={{u.Nom}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+    <!-- test{{user|json}} let user of allUser -->
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #prenomInput class="input has-background-light" type="text" placeholder="Prenom" value={{u.Prenom}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #statutInput class="input has-background-light" type="text" placeholder="Statut" value={{u.Statut}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #heureMinInput class="input has-background-light" type="text" placeholder="HeureMin" value={{u.HeureMin}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #nbHeureDechargeableInput class="input has-background-light" type="text" placeholder="NbHeureDechargeable" value={{u.NbHeureDechargeable}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input #emailInput class="input has-background-light" type="email" placeholder="Email" value={{u.email}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input #pwInput class="input has-background-light" type="password" placeholder="Password" value={{u.Mdp}}>
+        <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+      </p>
+    </div>
+    <div class="field" style="display: flex; justify-content: flex;">
+      <p class="control">
+        <button class="button is-success has-text-white" (click)="onUpdateButtonClicked(idInput.value, nomInput.value, prenomInput.value, statutInput.value, heureMinInput.value, nbHeureDechargeableInput.value, emailInput.value, pwInput.value)" routerLink="../monCompte" >
+          Valider
+        </button>
+      </p>
+    </div>
+    <br>
+
+    <p class="has-text-grey">Already got an account? <a routerLink="../connexion">Login</a> now!</p>
+
+  </div>
+</div>

@@ -12,6 +12,13 @@ import { RecapitulatifComponent } from './Vue/recapitulatif/recapitulatif.compon
 import { EnseignementsComponent } from './Vue/enseignements/enseignements.component';
 import { MonCompteComponent } from './Vue/mon-compte/mon-compte.component';
 import { ModifCompteComponent } from './Vue/modif-compte/modif-compte.component';
+import { EnseignementsParEnseignantComponent } from './Vue/enseignements-par-enseignant/enseignements-par-enseignant.component';
+import { EnseignementsEnseignantComponent } from './Vue/enseignements-enseignant/enseignements-enseignant.component';
+import { ModifCompteEnseignantComponent } from './Vue/modif-compte-enseignant/modif-compte-enseignant.component';
+import { RecapitulatifVueAdminComponent } from './Vue/recapitulatif-vue-admin/recapitulatif-vue-admin.component';
+import { InscriptionVueAdminComponent } from './Vue/inscription-vue-admin/inscription-vue-admin.component';
+import { EnseignementsVueAdminComponent } from './Vue/enseignements-vue-admin/enseignements-vue-admin.component';
+import { EnseignementsParEnseignantVueAdminComponent } from './Vue/enseignements-par-enseignant-vue-admin/enseignements-par-enseignant-vue-admin.component';
 
 const routes: Routes = [
   { path: '', pathMatch:'full', redirectTo: 'inscription' },
@@ -25,7 +32,14 @@ const routes: Routes = [
   { path: 'recapitulatif', component: RecapitulatifComponent },
   { path: 'enseignements', component: EnseignementsComponent },
   { path: 'monCompte', component: MonCompteComponent },
-  { path: 'modifCompte', component: ModifCompteComponent }
+  { path: 'modifCompte', component: ModifCompteComponent },
+  { path: 'enseignementsParEnseignant', component: EnseignementsParEnseignantComponent },
+  { path: 'enseignementsEnseignant', component: EnseignementsEnseignantComponent },
+  { path: 'modifCompteEnseignant', component: ModifCompteEnseignantComponent },
+  { path: 'recapitulatifVueAdmin', component: RecapitulatifVueAdminComponent },
+  { path: 'inscriptionVueAdmin', component: InscriptionVueAdminComponent },
+  { path: 'enseignementsVueAdmin', component: EnseignementsVueAdminComponent },
+  { path: 'enseignementsParEnseignantVueAdmin', component: EnseignementsParEnseignantVueAdminComponent }
 
 ];
 

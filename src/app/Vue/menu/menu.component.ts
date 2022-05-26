@@ -12,25 +12,36 @@ import { NgModule } from '@angular/core';
 export class MenuComponent implements OnInit {
   //@Input() globlaString:any;
   public globlaString:any;
+  public allpeople:any;
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http.get('http://localhost:8888/search').subscribe(
-      value => { 
-        
-        this.globlaString=value;
-        //this.globlaString;
-        console.log(this.globlaString);
-        
-        //this.reloadComponent(); 
-        //this.refresh();
+      value => {
+        if(Object.keys(value).length==0){
+                this.allpeople=true;
+                //this.refresh();
+                }
+              else {
+                this.globlaString=value;
+                //this.refresh();
+              }
   },
   error => console.log(error),);
-  //this.refresh();
+
   }
 
-  reloadComponent(){  
+  deconnexion(){
+    this.http.get('http://localhost:8888/deconnexion').subscribe(
+          value => {
+      },
+      error => console.log(error),);
+    this.globlaString="";
+    //this.refresh();
+  }
+
+  reloadComponent(){
     this.ngOnInit();
   }
 

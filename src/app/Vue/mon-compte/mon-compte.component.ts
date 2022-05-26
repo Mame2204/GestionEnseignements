@@ -18,14 +18,13 @@ export class MonCompteComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8888/search', {
-      withCredentials: true}).subscribe(
-      value => { 
+    this.http.get('http://localhost:8888/search').subscribe(
+      value => {
       if(Object.keys(value).length==0)
         this.router.navigate(['/connexion']);
       else {
         this.currentUser=value;
-        //this.reloadComponent(); 
+        //this.reloadComponent();
         //this.refresh();
       }
   },
@@ -34,9 +33,8 @@ export class MonCompteComponent implements OnInit {
 
 
   trouveUser(id:string) {
-    this.http.get('http://localhost:8888/search/'+id, {
-      withCredentials: true}).subscribe(
-      value => { 
+    this.http.get('http://localhost:8888/search/'+id).subscribe(
+      value => {
       if(Object.keys(value).length==0)
         this.router.navigate(['/connexion']);
       else {
@@ -46,10 +44,10 @@ export class MonCompteComponent implements OnInit {
       }
   },
   error => console.log(error),);
-  
+
   }
 
-  reloadComponent(){  
+  reloadComponent(){
     let currentUrl = this.router.url;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';

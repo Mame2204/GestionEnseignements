@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 export class GestionEnseignementsComponent implements OnInit {
 
   public allUser: any;
+  public allEnseignements: any;
 
   constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
@@ -21,13 +22,25 @@ export class GestionEnseignementsComponent implements OnInit {
         value => {
           if(Object.keys(value).length==0)
           this.router.navigate(['/connexion']);
-          else 
+          else
             this.allUser=value;
           }
       ,
       error => console.log(error),
-      
+
      );
   }
+
+  detailsUE(id: string) {
+        this.http.get('http://localhost:8888/searchUEs/'+id).subscribe(
+          value => {
+          this.allEnseignements=value;
+          },
+          error => console.log(error),
+         );
+    }
+
+    //ajoutEnseignementsEnseignantUE(id:string) {
+    //}
 
 }

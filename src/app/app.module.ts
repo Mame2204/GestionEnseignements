@@ -20,6 +20,14 @@ import { EnseignementsComponent } from './Vue/enseignements/enseignements.compon
 import { MonCompteComponent } from './Vue/mon-compte/mon-compte.component';
 import { ModifCompteComponent } from './Vue/modif-compte/modif-compte.component';
 import { DeconnexionComponent } from './Vue/deconnexion/deconnexion.component';
+import { EnseignementsParEnseignantComponent } from './Vue/enseignements-par-enseignant/enseignements-par-enseignant.component';
+import { EnseignementsEnseignantComponent } from './Vue/enseignements-enseignant/enseignements-enseignant.component';
+import { ModifCompteEseignantComponent } from './Vue/modif-compte-eseignant/modif-compte-eseignant.component';
+import { ModifCompteEnseignantComponent } from './Vue/modif-compte-enseignant/modif-compte-enseignant.component';
+import { RecapitulatifVueAdminComponent } from './Vue/recapitulatif-vue-admin/recapitulatif-vue-admin.component';
+import { InscriptionVueAdminComponent } from './Vue/inscription-vue-admin/inscription-vue-admin.component';
+import { EnseignementsVueAdminComponent } from './Vue/enseignements-vue-admin/enseignements-vue-admin.component';
+import { EnseignementsParEnseignantVueAdminComponent } from './Vue/enseignements-par-enseignant-vue-admin/enseignements-par-enseignant-vue-admin.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,15 @@ import { DeconnexionComponent } from './Vue/deconnexion/deconnexion.component';
     EnseignementsComponent,
     MonCompteComponent,
     ModifCompteComponent,
-    DeconnexionComponent
+    DeconnexionComponent,
+    EnseignementsParEnseignantComponent,
+    EnseignementsEnseignantComponent,
+    ModifCompteEseignantComponent,
+    ModifCompteEnseignantComponent,
+    RecapitulatifVueAdminComponent,
+    InscriptionVueAdminComponent,
+    EnseignementsVueAdminComponent,
+    EnseignementsParEnseignantVueAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +64,7 @@ import { DeconnexionComponent } from './Vue/deconnexion/deconnexion.component';
     //{ provide: HTTP_INTERCEPTORS, useClass: WebReqInterceptor, multi: true }
     AuthService
   ],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

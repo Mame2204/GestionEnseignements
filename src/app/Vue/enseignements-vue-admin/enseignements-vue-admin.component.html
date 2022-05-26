@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- width=device-width aide à définir la largeur de la page, pour qu'elle soit égale à celle de l'écran de votre appareil -->
+  <title>Exemple de page avec Bootstrap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+<!--SUITE ENSEIGNEMENT-->
+<div *ngIf="ue;then suite else debut"></div>
+<ng-template #suite>
+  <div class="centered-content">
+    <div >
+      <h1 class="title has-text-primary">Precison des heures</h1>
+    </div >
+    <div *ngFor="let u of ue">
+      <!--      <div *ngFor="let s of u">-->
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #idInput class="input has-background-light" type="hidden" value={{u._id}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #FormationInput class="input has-background-light" type="hidden" value={{u.Formation}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #SemestreInput class="input has-background-light" type="hidden" value={{u.Semestre}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #RefInput class="input has-background-light" type="hidden" value={{u.Ref}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #IntituleInput class="input has-background-light" type="hidden" value={{u.Intitule}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #StatutInput class="input has-background-light" type="hidden" value={{u.Statut}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #hCMInput class="input has-background-light" type="hidden" value={{u.hCM}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #hTDInput class="input has-background-light" type="hidden" value={{u.hTD}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #hTPInput class="input has-background-light" type="hidden" value={{u.hTP}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input #EffectifInput class="input has-background-light" type="hidden" value={{u.Effectif}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+
+
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <label>Groupe de CM</label><br>
+          <input #GrCMInput class="input has-background-light" type="text" value={{u.grCM}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <!-- test{{user|json}} let user of allUser -->
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <label>Groupe de TD</label><br>
+          <input #GrTDInput class="input has-background-light"  type="text" placeholder="grTD" value={{u.grTD}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <label>Groupe de TP</label><br>
+          <input #GrTPInput class="input has-background-light" type="text" placeholder="grTP" value={{u.grTP}}>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field" style="display: flex; justify-content: flex;">
+        <p class="control">
+          <button (click)="modifEnseignement(idInput.value, FormationInput.value, SemestreInput.value, RefInput.value, IntituleInput.value, StatutInput.value, hCMInput.value, hTDInput.value, hTPInput.value, EffectifInput.value, GrCMInput.value, GrTDInput.value, GrTPInput.value )" routerLink="/gestionEnseignements">
+            Valider
+          </button>
+        </p>
+      </div>
+      <br>
+    </div>
+
+  </div>
+</ng-template>
+
+<!--SUITE ENSEIGNEMENT-->
+<ng-template #debut>
+  <select name="formations" class="form-control" [(ngModel)]="ValueName" (change)="selectedValueObj($event)" required>
+    <option *ngFor="let Value of formations" [value]="Value.name">{{Value.name}}</option>
+  </select>
+  <p *ngFor="let ue of allUEs">
+    <input type="radio" name="radioUEs" value={{ue.Ref}} (change)="choixRef($event)" >{{ue.Ref}}<br/>
+  </p>
+  <div class="field" style="display: flex; justify-content: flex;">
+    <p class="control">
+      <button class="button is-success has-text-white"  (click)="ajoutEnseignement()">
+        Valider
+      </button>
+    </p>
+  </div>
+</ng-template>
+
+
+
+<!-- à la fin de votre page html -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

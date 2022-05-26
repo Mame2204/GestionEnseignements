@@ -15,31 +15,20 @@ import { SelectControlValueAccessor } from '@angular/forms';
 export class ModifCompteComponent implements OnInit {
 
   public id:any;
-  @Input() user:any; //= {
-  //   "Nom":'',
-  //   "Prenom":'',
-  //   "Statut":'',
-  //   "HeureMin":'',
-  //   "NbHeureDechargeable":'',
-  //   "email":'',
-  //   "Mdp":''
-  //  };
+  @Input() user:any;
 
-  constructor(private authService: AuthService, private router: Router, private http: HttpClient, private route: ActivatedRoute) { 
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.id = params['par1'];
   });
   }
 
-  
+
 
   ngOnInit(): void {
-    //console.log("c'est mon id"+id);
-    //this.id = this.route.snapshot.paramMap.get('par1');
-    //var id = mongoose.Types.ObjectId(req.params.id);
-    console.log("TEST id modif"+this.id)
+    //console.log("TEST id modif"+this.id)
     this.http.get('http://localhost:8888/search/'+this.id).subscribe(
-      value => { 
+      value => {
         //console.log("TEST"+JSON.stringify(value));
       if(Object.keys(value).length==0)
         this.router.navigate(['/connexion']);
@@ -50,25 +39,25 @@ export class ModifCompteComponent implements OnInit {
       }
   },
   error => console.log(error),);
-    
+
   }
 
   onUpdateButtonClicked(id: string, nom: string, prenom: string, statut: string, heureMin: string, nbHeureDechargeable: string, email: string, password: string) {
-    
+
       //this.router.navigate(['/connexion']);
       this.http.get('http://localhost:8888/updateUser?id='+id+'&nom='+nom+'&prenom='+prenom+'&statut='+statut+'&heureMin='+heureMin+'&nbHeureDechargeable='+nbHeureDechargeable+'&email='+email+'&Mdp='+password, {
         withCredentials: true}).subscribe(
         value => console.log(JSON.stringify(value)),
         error => console.log(error)
         //this.router.navigate(['/gestComptes']);
-       ); 
+       );
   }
 
 
   // trouveUser(id:string) {
   //   //console.log("c'est mon id"+id);
   //   this.http.get('http://localhost:8888/search/'+id).subscribe(
-  //     value => { 
+  //     value => {
   //       //console.log("TEST"+JSON.stringify(value));
   //     if(Object.keys(value).length==0)
   //       this.router.navigate(['/connexion']);
